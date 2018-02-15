@@ -3,7 +3,7 @@ import {
   FETCH_ALL_SONGS
 } from './types';
 
-const url = 'https://my.api.mockaroo.com/playlist?key=40ffa9b0';
+const url = 'https://demo7014343.mockable.io';
 
 export const allSongs = () => {
   return (dispatch) => {
