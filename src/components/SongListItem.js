@@ -23,14 +23,14 @@ class SongListItem extends Component {
     const { artist, album, title } = this.props.song;
 
     return (
-      < div >
+      <div>
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
         <SongText>Album: {album}</SongText>
         <Button onClick={() => this.props.addSongToPlaylist(this.props.song)}>
           Add to playlist
         </Button>
-      </div >
+      </div>
     );
   }
 }
