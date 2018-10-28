@@ -1,15 +1,14 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { addSongToPlaylist } from '../../actions/playlist';
-import { ADD_SONG } from '../../actions/types';
+import { addSongToPlaylist, removeSongFromPlaylist } from '../../actions/playlist';
+import { ADD_SONG, REMOVE_SONG } from '../../actions/types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('async actions', () => {
+describe('playlist actions', () => {
     it('should set add song to playlist action object', () => {
-
         const expectedAction = addSongToPlaylist({
             song: 'any'
         });
@@ -20,6 +19,23 @@ describe('async actions', () => {
 
         expect(store.getActions()).toEqual([{
             type: ADD_SONG,
+            payload: {
+                song: 'any'
+            }
+        }]);
+    });
+
+    it('should set remove song to playlist actiuon object', () => {
+        const expectedAction = removeSongFromPlaylist({
+            song: 'any'
+        });
+
+        const store = mockStore({});
+
+        store.dispatch(expectedAction);
+
+        expect(store.getActions()).toEqual([{
+            type: REMOVE_SONG,
             payload: {
                 song: 'any'
             }

@@ -1,6 +1,9 @@
 #node_modules
 node_modules/
 
+#public bundles
 public/bundle.js
 public/bundle.js.map
+
+#junk
 src/.DS_Store
