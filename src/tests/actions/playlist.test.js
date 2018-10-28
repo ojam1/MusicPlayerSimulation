@@ -8,7 +8,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('playlist actions', () => {
-    it('should set add song to playlist action object', () => {
+    it('should add song to playlist', () => {
         const expectedAction = addSongToPlaylist({
             song: 'any'
         });
@@ -25,7 +25,7 @@ describe('playlist actions', () => {
         }]);
     });
 
-    it('should set remove song to playlist actiuon object', () => {
+    it('should remove song from playlist', () => {
         const expectedAction = removeSongFromPlaylist({
             song: 'any'
         });
