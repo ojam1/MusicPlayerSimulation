@@ -5,8 +5,7 @@ import {
 
 const url = 'https://demo7014343.mockable.io';
 
-export const allSongs = () => {
-  return (dispatch) => {
+export const allSongs = () => (dispatch) => {
     axios.get(url).then(returnedInformation => {
       dispatch({
         type: FETCH_ALL_SONGS,
@@ -14,4 +13,3 @@ export const allSongs = () => {
       });
     });
   };
-};

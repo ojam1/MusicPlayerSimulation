@@ -27,7 +27,6 @@ display:inline-block;
 
 
 class Playing extends Component {
-
   handlePrevious() {
     if ((this.props.playlist.indexOf(this.props.playingSong.playingSong)) - 1 > 0) {
       this.props.currentPlayingSong(this.props.playlist[this.props.playlist.indexOf(this.props.playingSong.playingSong) - 1]);
@@ -59,7 +58,7 @@ class Playing extends Component {
     const { artist, album, title } = this.props.playingSong.playingSong;
 
     return (
-      <div>        
+      <div>
         <Header>Now Playing</Header>
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
@@ -69,7 +68,7 @@ class Playing extends Component {
         {this.renderPlayPauseButton()}
         <Divider />
         <Button onClick={() => this.handleNext()}>Next</Button>
-      </div >
+      </div>
     );
   }
 }

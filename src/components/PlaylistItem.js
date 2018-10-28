@@ -39,7 +39,7 @@ class PlaylistItem extends Component {
         <Button onClick={() => this.props.removeSongFromPlaylist(this.props.song)}>
           Remove song from playlist
         </Button>
-      </div >
+      </div>
     );
   }
 }
