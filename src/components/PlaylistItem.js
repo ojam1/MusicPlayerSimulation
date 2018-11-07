@@ -25,21 +25,22 @@ const SongText = styled.div`
 
 class PlaylistItem extends Component {
   render() {
-    const { artist, album, title } = this.props.song;
+    const { song, currentPlayingSong, removeSongFromPlaylist } = this.props
+    const { artist, album, title } = song;
 
     return (
       <div>
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
         <SongText>Album: {album}</SongText>
-        <Button onClick={() => this.props.currentPlayingSong(this.props.song)}>
+        <Button onClick={() => currentPlayingSong(song)}>
           Play
         </Button>
         <Divider />
-        <Button onClick={() => this.props.removeSongFromPlaylist(this.props.song)}>
+        <Button onClick={() => removeSongFromPlaylist(song)}>
           Remove song from playlist
         </Button>
-      </div >
+      </div>
     );
   }
 }

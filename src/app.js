@@ -26,7 +26,7 @@ const jsx = (
     <Container>
       <SongPlaying />
       <Playlist />
-      <SongList />      
+      <SongList />
     </Container>
   </Provider>
 );

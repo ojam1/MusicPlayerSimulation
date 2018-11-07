@@ -1,4 +1,5 @@
-[{"id":1,"artist":"Erika McTerry","title":"id nulla ultrices","album":"tincidunt in","duration":3.25},
+[
+    {"id":1,"artist":"Erika McTerry","title":"id nulla ultrices","album":"tincidunt in","duration":3.25},
     {"id":2,"artist":"Aaren Allender","title":"amet consectetuer adipiscing elit","album":"ultrices posuere cubilia","duration":1.85},
     {"id":3,"artist":"Ilka Wabey","title":"turpis integer","album":"in lectus pellentesque","duration":2.7},
     {"id":4,"artist":"Em Bartholomew","title":"convallis","album":"elementum eu","duration":2.37},
@@ -97,4 +98,5 @@
     {"id":97,"artist":"Gabriel Moorton","title":"semper rutrum nulla nunc purus","album":"in","duration":4.26},
     {"id":98,"artist":"Jere Gatty","title":"volutpat erat quisque erat eros","album":"vel","duration":1.99},
     {"id":99,"artist":"Talyah Chopping","title":"morbi","album":"nisi eu","duration":2.53},
-    {"id":100,"artist":"Mellisent Heap","title":"curae mauris","album":"eros elementum pellentesque","duration":1.98}]
+    {"id":100,"artist":"Mellisent Heap","title":"curae mauris","album":"eros elementum pellentesque","duration":1.98}
+]

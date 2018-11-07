@@ -27,29 +27,37 @@ display:inline-block;
 
 
 class Playing extends Component {
-
   handlePrevious() {
-    if ((this.props.playlist.indexOf(this.props.playingSong.playingSong)) - 1 > 0) {
-      this.props.currentPlayingSong(this.props.playlist[this.props.playlist.indexOf(this.props.playingSong.playingSong) - 1]);
+    const { playlist, currentPlayingSong } = this.props;
+    const { playingSong } = this.props.playingSong;
+
+    if ((playlist.indexOf(playingSong)) - 1 > 0) {
+      currentPlayingSong(playlist[playlist.indexOf(playingSong) - 1]);
     }
   }
 
   handleNext() {
-    if ((this.props.playlist.indexOf(this.props.playingSong.playingSong)) + 1 !== this.props.playlist.length) {
-      this.props.currentPlayingSong(this.props.playlist[this.props.playlist.indexOf(this.props.playingSong.playingSong) + 1]);
+    const { playlist, currentPlayingSong } = this.props;
+    const { playingSong } = this.props.playingSong;
+
+    if ((playlist.indexOf(playingSong)) + 1 !== playlist.length) {
+      currentPlayingSong(playlist[playlist.indexOf(playingSong) + 1]);
     }
   }
 
   renderPlayPauseButton() {
-    if (this.props.playingSong.isPlaying) {
+    const { changePlayingState } = this.props;
+    const { isPlaying } = this.props.playingSong;
+
+    if (isPlaying) {
       return (
-        <Button onClick={() => this.props.changePlayingState(!this.props.playingSong.isPlaying)}>
+        <Button onClick={() => changePlayingState(!isPlaying)}>
           Pause
           </Button>
       );
     }
     return (
-      <Button onClick={() => this.props.changePlayingState(!this.props.playingSong.isPlaying)}>
+      <Button onClick={() => changePlayingState(!isPlaying)}>
         Play
         </Button>
     );
@@ -59,7 +67,7 @@ class Playing extends Component {
     const { artist, album, title } = this.props.playingSong.playingSong;
 
     return (
-      <div>        
+      <div>
         <Header>Now Playing</Header>
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
@@ -69,7 +77,7 @@ class Playing extends Component {
         {this.renderPlayPauseButton()}
         <Divider />
         <Button onClick={() => this.handleNext()}>Next</Button>
-      </div >
+      </div>
     );
   }
 }
