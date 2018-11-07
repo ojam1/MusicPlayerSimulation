@@ -2,7 +2,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { allSongs } from '../../actions/songs';
-import { FETCH_ALL_SONGS } from '../../actions/types';
 import mockAxios from 'axios';
 
 const middlewares = [thunk];
