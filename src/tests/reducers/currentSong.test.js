@@ -13,7 +13,7 @@ describe('current song reducer', () => {
     });
 
     it('should handle PLAYING_SONG', () => {
-        expect(reducer([], {
+        expect(reducer({}, {
             type: PLAYING_SONG,
             payload: 'any'
         })
@@ -23,7 +23,7 @@ describe('current song reducer', () => {
     });
 
     it('should handle CHANGE_PLAYING_STATE', () => {
-        expect(reducer([], {
+        expect(reducer({}, {
             type: CHANGE_PLAYING_STATE,
             payload: 'any'
         })
