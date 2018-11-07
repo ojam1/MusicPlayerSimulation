@@ -28,33 +28,36 @@ display:inline-block;
 
 class Playing extends Component {
   handlePrevious() {
-    const { playlist } = this.props;
+    const { playlist, currentPlayingSong } = this.props;
     const { playingSong } = this.props.playingSong;
 
     if ((playlist.indexOf(playingSong)) - 1 > 0) {
-      this.props.currentPlayingSong(playlist[playlist.indexOf(playingSong) - 1]);
+      currentPlayingSong(playlist[playlist.indexOf(playingSong) - 1]);
     }
   }
 
   handleNext() {
-    const { playlist } = this.props;
+    const { playlist, currentPlayingSong } = this.props;
     const { playingSong } = this.props.playingSong;
 
     if ((playlist.indexOf(playingSong)) + 1 !== playlist.length) {
-      this.props.currentPlayingSong(playlist[playlist.indexOf(playingSong) + 1]);
+      currentPlayingSong(playlist[playlist.indexOf(playingSong) + 1]);
     }
   }
 
   renderPlayPauseButton() {
-    if (this.props.playingSong.isPlaying) {
+    const { changePlayingState } = this.props;
+    const { isPlaying } = this.props.playingSong;
+
+    if (isPlaying) {
       return (
-        <Button onClick={() => this.props.changePlayingState(!this.props.playingSong.isPlaying)}>
+        <Button onClick={() => changePlayingState(!isPlaying)}>
           Pause
           </Button>
       );
     }
     return (
-      <Button onClick={() => this.props.changePlayingState(!this.props.playingSong.isPlaying)}>
+      <Button onClick={() => changePlayingState(!isPlaying)}>
         Play
         </Button>
     );

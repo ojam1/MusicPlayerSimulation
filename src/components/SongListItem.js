@@ -20,14 +20,15 @@ const SongText = styled.div`
 
 class SongListItem extends Component {
   render() {
-    const { artist, album, title } = this.props.song;
+    const { song, addSongToPlaylist } = this.props
+    const { artist, album, title } = song;
 
     return (
       <div>
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
         <SongText>Album: {album}</SongText>
-        <Button onClick={() => this.props.addSongToPlaylist(this.props.song)}>
+        <Button onClick={() => addSongToPlaylist(song)}>
           Add to playlist
         </Button>
       </div>
