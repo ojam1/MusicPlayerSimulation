@@ -28,14 +28,20 @@ display:inline-block;
 
 class Playing extends Component {
   handlePrevious() {
-    if ((this.props.playlist.indexOf(this.props.playingSong.playingSong)) - 1 > 0) {
-      this.props.currentPlayingSong(this.props.playlist[this.props.playlist.indexOf(this.props.playingSong.playingSong) - 1]);
+    const { playlist } = this.props;
+    const { playingSong } = this.props.playingSong;
+
+    if ((playlist.indexOf(playingSong)) - 1 > 0) {
+      this.props.currentPlayingSong(playlist[playlist.indexOf(playingSong) - 1]);
     }
   }
 
   handleNext() {
-    if ((this.props.playlist.indexOf(this.props.playingSong.playingSong)) + 1 !== this.props.playlist.length) {
-      this.props.currentPlayingSong(this.props.playlist[this.props.playlist.indexOf(this.props.playingSong.playingSong) + 1]);
+    const { playlist } = this.props;
+    const { playingSong } = this.props.playingSong;
+
+    if ((playlist.indexOf(playingSong)) + 1 !== playlist.length) {
+      this.props.currentPlayingSong(playlist[playlist.indexOf(playingSong) + 1]);
     }
   }
 
