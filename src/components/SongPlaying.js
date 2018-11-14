@@ -31,7 +31,7 @@ class Playing extends Component {
     const { playlist, currentPlayingSong } = this.props;
     const { playingSong } = this.props.playingSong;
 
-    if ((playlist.indexOf(playingSong)) - 1 > 0) {
+    if ((playlist.indexOf(playingSong)) - 1 >= 0) {
       currentPlayingSong(playlist[playlist.indexOf(playingSong) - 1]);
     }
   }

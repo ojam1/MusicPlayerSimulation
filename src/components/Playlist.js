@@ -4,14 +4,20 @@ import uuid from 'uuid/v4';
 
 import PlaylistItem from './PlaylistItem';
 
-class Playlist extends Component {
+export class Playlist extends Component {
   render() {
+    const { playlist } = this.props;
+
     return (
       <div>
         <h1>Playlist</h1>
         <div>
           {
-            this.props.playlist.map((song) => <PlaylistItem key={uuid()} song={song} />)
+            playlist.length == 0 ? (
+              <h2>No songs in playlist</h2>
+            ) : (
+              playlist.map((song) => <PlaylistItem key={uuid()} song={song} />)
+            )
           }
         </div>
       </div>
