@@ -8,7 +8,6 @@ import configureStore from './store/configureStore';
 import SongList from './components/SongList';
 import Playlist from './components/Playlist';
 
-
 const store = configureStore();
 
 const Container = styled.div`

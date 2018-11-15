@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { removeSongFromPlaylist, currentPlayingSong } from '../actions/playlist';
-
+import {
+  removeSongFromPlaylist,
+  currentPlayingSong
+} from '../actions/playlist';
 
 const Button = styled.button`
-background: purple;
-border: none;
-color: white;
-font-weight: 100;
-padding: 1rem;
+  background: purple;
+  border: none;
+  color: white;
+  font-weight: 100;
+  padding: 1rem;
 `;
 
 const Divider = styled.div`
-width:5px;
-height:auto;
-display:inline-block;
+  width: 5px;
+  height: auto;
+  display: inline-block;
 `;
 
 const SongText = styled.div`
@@ -25,7 +27,7 @@ const SongText = styled.div`
 
 class PlaylistItem extends Component {
   render() {
-    const { song, currentPlayingSong, removeSongFromPlaylist } = this.props
+    const { song, currentPlayingSong, removeSongFromPlaylist } = this.props;
     const { artist, album, title } = song;
 
     return (
@@ -33,9 +35,7 @@ class PlaylistItem extends Component {
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
         <SongText>Album: {album}</SongText>
-        <Button onClick={() => currentPlayingSong(song)}>
-          Play
-        </Button>
+        <Button onClick={() => currentPlayingSong(song)}>Play</Button>
         <Divider />
         <Button onClick={() => removeSongFromPlaylist(song)}>
           Remove song from playlist
@@ -45,4 +45,7 @@ class PlaylistItem extends Component {
   }
 }
 
-export default connect(null, { removeSongFromPlaylist, currentPlayingSong })(PlaylistItem);
+export default connect(
+  null,
+  { removeSongFromPlaylist, currentPlayingSong }
+)(PlaylistItem);

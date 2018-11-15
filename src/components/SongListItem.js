@@ -4,13 +4,12 @@ import styled from 'styled-components';
 
 import { addSongToPlaylist } from '../actions/playlist';
 
-
 const Button = styled.button`
-background: purple;
-border: none;
-color: white;
-font-weight: 500;
-padding: 1.2rem;
+  background: purple;
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 1.2rem;
 `;
 
 const SongText = styled.div`
@@ -20,7 +19,7 @@ const SongText = styled.div`
 
 class SongListItem extends Component {
   render() {
-    const { song, addSongToPlaylist } = this.props
+    const { song, addSongToPlaylist } = this.props;
     const { artist, album, title } = song;
 
     return (
@@ -28,12 +27,13 @@ class SongListItem extends Component {
         <SongText>Artist: {artist}</SongText>
         <SongText>Title: {title}</SongText>
         <SongText>Album: {album}</SongText>
-        <Button onClick={() => addSongToPlaylist(song)}>
-          Add to playlist
-        </Button>
+        <Button onClick={() => addSongToPlaylist(song)}>Add to playlist</Button>
       </div>
     );
   }
 }
 
-export default connect(null, { addSongToPlaylist })(SongListItem);
+export default connect(
+  null,
+  { addSongToPlaylist }
+)(SongListItem);

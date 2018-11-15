@@ -1,6 +1,4 @@
-import {
-  FETCH_ALL_SONGS
-} from '../actions/types';
+import { FETCH_ALL_SONGS } from '../actions/types';
 
 const INITIAL_STATE = [{}];
 

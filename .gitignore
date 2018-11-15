@@ -7,3 +7,6 @@ public/bundle.js.map
 
 #junk
 src/.DS_Store
+
+#vscode settings
+.vscode/*

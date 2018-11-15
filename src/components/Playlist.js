@@ -12,21 +12,22 @@ export class Playlist extends Component {
       <div>
         <h1>Playlist</h1>
         <div>
-          {
-            playlist.length == 0 ? (
-              <h2>No songs in playlist</h2>
-            ) : (
-              playlist.map((song) => <PlaylistItem key={uuid()} song={song} />)
-            )
-          }
+          {playlist.length == 0 ? (
+            <h2>No songs in playlist</h2>
+          ) : (
+            playlist.map(song => <PlaylistItem key={uuid()} song={song} />)
+          )}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   playlist: state.playlist.songsInPlaylist
 });
 
-export default connect(mapStateToProps, null)(Playlist);
+export default connect(
+  mapStateToProps,
+  null
+)(Playlist);

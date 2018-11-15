@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import { changePlayingState, currentPlayingSong } from '../actions/playlist';
 
 const Button = styled.button`
-background: purple;
-border: none;
-color: white;
-font-weight: 100;
-padding: 1rem;
+  background: purple;
+  border: none;
+  color: white;
+  font-weight: 100;
+  padding: 1rem;
 `;
 
 const SongText = styled.div`
@@ -20,18 +20,17 @@ const Header = styled.h1`
   font-weight: bold;
 `;
 const Divider = styled.div`
-width:5px;
-height:auto;
-display:inline-block;
+  width: 5px;
+  height: auto;
+  display: inline-block;
 `;
-
 
 class Playing extends Component {
   handlePrevious() {
     const { playlist, currentPlayingSong } = this.props;
     const { playingSong } = this.props.playingSong;
 
-    if ((playlist.indexOf(playingSong)) - 1 >= 0) {
+    if (playlist.indexOf(playingSong) - 1 >= 0) {
       currentPlayingSong(playlist[playlist.indexOf(playingSong) - 1]);
     }
   }
@@ -40,7 +39,7 @@ class Playing extends Component {
     const { playlist, currentPlayingSong } = this.props;
     const { playingSong } = this.props.playingSong;
 
-    if ((playlist.indexOf(playingSong)) + 1 !== playlist.length) {
+    if (playlist.indexOf(playingSong) + 1 !== playlist.length) {
       currentPlayingSong(playlist[playlist.indexOf(playingSong) + 1]);
     }
   }
@@ -51,21 +50,14 @@ class Playing extends Component {
 
     if (isPlaying) {
       return (
-        <Button onClick={() => changePlayingState(!isPlaying)}>
-          Pause
-          </Button>
+        <Button onClick={() => changePlayingState(!isPlaying)}>Pause</Button>
       );
     }
-    return (
-      <Button onClick={() => changePlayingState(!isPlaying)}>
-        Play
-        </Button>
-    );
+    return <Button onClick={() => changePlayingState(!isPlaying)}>Play</Button>;
   }
 
   render() {
     const { artist, album, title } = this.props.playingSong.playingSong;
-
     return (
       <div>
         <Header>Now Playing</Header>
@@ -82,9 +74,12 @@ class Playing extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   playingSong: state.currentSong,
   playlist: state.playlist.songsInPlaylist
 });
 
-export default connect(mapStateToProps, { changePlayingState, currentPlayingSong })(Playing);
+export default connect(
+  mapStateToProps,
+  { changePlayingState, currentPlayingSong }
+)(Playing);

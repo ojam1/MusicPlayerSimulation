@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = (env) => {
+module.exports = env => {
   const isProduction = env === 'production';
 
   return {
@@ -10,11 +10,13 @@ module.exports = (env) => {
       filename: 'bundle.js'
     },
     module: {
-      rules: [{
-        loader: 'babel-loader',
-        test: /\.js$/,
-        exclude: /node_modules/
-      }]
+      rules: [
+        {
+          loader: 'babel-loader',
+          test: /\.js$/,
+          exclude: /node_modules/
+        }
+      ]
     },
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {

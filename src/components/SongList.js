@@ -14,17 +14,20 @@ class SongList extends Component {
       <div>
         <h1>Available Songs</h1>
         <div>
-          {
-            this.props.songs.map((song) => <SongListItem key={song.id} song={song} />)
-          }
+          {this.props.songs.map(song => (
+            <SongListItem key={song.id} song={song} />
+          ))}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   songs: state.song
 });
 
-export default connect(mapStateToProps, { allSongs })(SongList);
+export default connect(
+  mapStateToProps,
+  { allSongs }
+)(SongList);
