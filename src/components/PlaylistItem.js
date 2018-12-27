@@ -1,29 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import {
   removeSongFromPlaylist,
   currentPlayingSong
 } from '../actions/playlist';
-
-const Button = styled.button`
-  background: purple;
-  border: none;
-  color: white;
-  font-weight: 100;
-  padding: 1rem;
-`;
-
-const Divider = styled.div`
-  width: 5px;
-  height: auto;
-  display: inline-block;
-`;
-
-const SongText = styled.div`
-  text-align: left;
-`;
 
 class PlaylistItem extends Component {
   render() {
@@ -32,14 +13,13 @@ class PlaylistItem extends Component {
 
     return (
       <div>
-        <SongText>Artist: {artist}</SongText>
-        <SongText>Title: {title}</SongText>
-        <SongText>Album: {album}</SongText>
-        <Button onClick={() => currentPlayingSong(song)}>Play</Button>
-        <Divider />
-        <Button onClick={() => removeSongFromPlaylist(song)}>
+        <div>Artist: {artist}</div>
+        <div>Title: {title}</div>
+        <div>Album: {album}</div>
+        <button onClick={() => currentPlayingSong(song)}>Play</button>
+        <button onClick={() => removeSongFromPlaylist(song)}>
           Remove song from playlist
-        </Button>
+        </button>
       </div>
     );
   }

@@ -1,29 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import { changePlayingState, currentPlayingSong } from '../actions/playlist';
-
-const Button = styled.button`
-  background: purple;
-  border: none;
-  color: white;
-  font-weight: 100;
-  padding: 1rem;
-`;
-
-const SongText = styled.div`
-  text-align: left;
-`;
-
-const Header = styled.h1`
-  font-weight: bold;
-`;
-const Divider = styled.div`
-  width: 5px;
-  height: auto;
-  display: inline-block;
-`;
 
 class Playing extends Component {
   handlePrevious() {
@@ -50,25 +28,23 @@ class Playing extends Component {
 
     if (isPlaying) {
       return (
-        <Button onClick={() => changePlayingState(!isPlaying)}>Pause</Button>
+        <button onClick={() => changePlayingState(!isPlaying)}>Pause</button>
       );
     }
-    return <Button onClick={() => changePlayingState(!isPlaying)}>Play</Button>;
+    return <button onClick={() => changePlayingState(!isPlaying)}>Play</button>;
   }
 
   render() {
     const { artist, album, title } = this.props.playingSong.playingSong;
     return (
       <div>
-        <Header>Now Playing</Header>
-        <SongText>Artist: {artist}</SongText>
-        <SongText>Title: {title}</SongText>
-        <SongText>Album: {album}</SongText>
-        <Button onClick={() => this.handlePrevious()}>Previous</Button>
-        <Divider />
+        <h1>Now Playing</h1>
+        <div>Artist: {artist}</div>
+        <div>Title: {title}</div>
+        <div>Album: {album}</div>
+        <button onClick={() => this.handlePrevious()}>Previous</button>
         {this.renderPlayPauseButton()}
-        <Divider />
-        <Button onClick={() => this.handleNext()}>Next</Button>
+        <button onClick={() => this.handleNext()}>Next</button>
       </div>
     );
   }
