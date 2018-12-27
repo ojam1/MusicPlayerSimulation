@@ -28,23 +28,47 @@ class Playing extends Component {
 
     if (isPlaying) {
       return (
-        <button onClick={() => changePlayingState(!isPlaying)}>Pause</button>
+        <button
+          className='btn btn-outline-primary'
+          onClick={() => changePlayingState(!isPlaying)}
+        >
+          <span className='fas fa-pause-circle' />
+        </button>
       );
     }
-    return <button onClick={() => changePlayingState(!isPlaying)}>Play</button>;
+    return (
+      <button
+        className='btn btn-outline-primary'
+        onClick={() => changePlayingState(!isPlaying)}
+      >
+        <span className='fas fa-play-circle' />
+      </button>
+    );
   }
 
   render() {
     const { artist, album, title } = this.props.playingSong.playingSong;
     return (
-      <div>
+      <div className='d-flex flex-column justify-content-center'>
         <h1>Now Playing</h1>
         <div>Artist: {artist}</div>
         <div>Title: {title}</div>
         <div>Album: {album}</div>
-        <button onClick={() => this.handlePrevious()}>Previous</button>
-        {this.renderPlayPauseButton()}
-        <button onClick={() => this.handleNext()}>Next</button>
+        <div class="btn-group">
+          <button
+            className='btn btn-outline-primary'
+            onClick={() => this.handlePrevious()}
+          >
+            <span className='fas fa-arrow-alt-circle-left' />
+          </button>
+          {this.renderPlayPauseButton()}
+          <button
+            className='btn btn-outline-primary'
+            onClick={() => this.handleNext()}
+          >
+            <span className='fas fa-arrow-alt-circle-right' />
+          </button>
+        </div>
       </div>
     );
   }

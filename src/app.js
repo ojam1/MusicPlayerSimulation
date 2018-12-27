@@ -13,7 +13,7 @@ const jsx = (
   <Provider store={store}>
     <div className='container-fluid'>
       <div className='row justify-content-around'>
-        <SongPlaying className='col' />
+        <SongPlaying className='col d-flex justify-content-center' />
       </div>
       <div className='row justify-content-around'>
         <Playlist className='col' />
