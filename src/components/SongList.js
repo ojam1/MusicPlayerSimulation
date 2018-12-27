@@ -4,7 +4,7 @@ import SongListItem from './SongListItem';
 
 import { allSongs } from '../actions/songs';
 
-class SongList extends Component {
+export class SongList extends Component {
   componentWillMount() {
     this.props.allSongs();
   }

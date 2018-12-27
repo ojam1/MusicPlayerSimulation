@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h1>
+    Available Songs
+  </h1>
+  <div>
+    <Connect(SongListItem)
+      key="1"
+      song={
+        Object {
+          "album": "tincidunt in",
+          "artist": "Erika McTerry",
+          "duration": 3.25,
+          "id": 1,
+          "title": "id nulla ultrices",
+        }
+      }
+    />
+    <Connect(SongListItem)
+      key="2"
+      song={
+        Object {
+          "album": "ultrices posuere cubilia",
+          "artist": "Aaren Allender",
+          "duration": 1.85,
+          "id": 2,
+          "title": "amet consectetuer adipiscing elit",
+        }
+      }
+    />
+  </div>
+</div>
+`;
