@@ -8,7 +8,7 @@ describe('current song reducer', () => {
     it('should return initial state', () => {
         expect(reducer(undefined, {})).toEqual({
             playingSong: [],
-            isPlaying: true
+            isPlaying: false
         });
     });
 
@@ -18,7 +18,8 @@ describe('current song reducer', () => {
             payload: 'any'
         })
         ).toEqual({
-            playingSong: 'any'
+            playingSong: 'any',
+            isPlaying: true
         });
     });
 
