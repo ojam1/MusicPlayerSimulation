@@ -1,7 +1,7 @@
 import { PLAYING_SONG, CHANGE_PLAYING_STATE } from '../actions/types';
 
 const INITIAL_STATE = {
-  playingSong: [],
+  playingSong: {},
   isPlaying: false
 };
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { changePlayingState, currentPlayingSong } from '../actions/playlist';
+import ProgressBar from './ProgressBar';
 
 class Playing extends Component {
   handlePrevious() {
@@ -22,46 +23,46 @@ class Playing extends Component {
     }
   }
 
-  renderPlayPauseButton() {
-    const { changePlayingState } = this.props;
+  renderPlayPause() {
     const { isPlaying } = this.props.playingSong;
 
-    if (isPlaying) {
-      return (
-        <button
-          className='btn btn-outline-primary'
-          onClick={() => changePlayingState(!isPlaying)}
-        >
-          <span className='fas fa-pause-circle' />
-        </button>
-      );
-    }
-    return (
-      <button
-        className='btn btn-outline-primary'
-        onClick={() => changePlayingState(!isPlaying)}
-      >
-        <span className='fas fa-play-circle' />
-      </button>
+    return isPlaying ? <h1>Playing</h1> : <h1>Paused</h1>;
+  }
+
+  renderPlayPauseButton() {
+    const { isPlaying } = this.props.playingSong;
+
+    return isPlaying ? (
+      <span className='fas fa-pause-circle' />
+    ) : (
+      <span className='fas fa-play-circle' />
     );
   }
 
   render() {
+    const { changePlayingState } = this.props;
+    const { isPlaying } = this.props.playingSong;
     const { artist, album, title } = this.props.playingSong.playingSong;
+
     return (
       <div className='d-flex flex-column justify-content-center'>
-        <h1>Now Playing</h1>
+        {this.renderPlayPause()}
         <div>Artist: {artist}</div>
         <div>Title: {title}</div>
         <div>Album: {album}</div>
-        <div className="btn-group">
+        <div className='btn-group'>
           <button
             className='btn btn-outline-primary'
             onClick={() => this.handlePrevious()}
           >
             <span className='fas fa-arrow-alt-circle-left' />
           </button>
-          {this.renderPlayPauseButton()}
+          <button
+            className='btn btn-outline-primary'
+            onClick={() => changePlayingState(!isPlaying)}
+          >
+            {this.renderPlayPauseButton()}
+          </button>
           <button
             className='btn btn-outline-primary'
             onClick={() => this.handleNext()}
@@ -69,6 +70,7 @@ class Playing extends Component {
             <span className='fas fa-arrow-alt-circle-right' />
           </button>
         </div>
+        <ProgressBar />
       </div>
     );
   }
