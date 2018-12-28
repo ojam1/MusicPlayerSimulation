@@ -54,7 +54,7 @@ class Playing extends Component {
         <div>Artist: {artist}</div>
         <div>Title: {title}</div>
         <div>Album: {album}</div>
-        <div class="btn-group">
+        <div className="btn-group">
           <button
             className='btn btn-outline-primary'
             onClick={() => this.handlePrevious()}

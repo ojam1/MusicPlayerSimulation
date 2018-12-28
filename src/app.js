@@ -29,7 +29,7 @@ const jsx = (
           Show All Songs
         </button>
       </p>
-      <div class='collapse' id='collapseExample'>
+      <div className='collapse' id='collapseExample'>
         <SongList/>
       </div>
     </div>
