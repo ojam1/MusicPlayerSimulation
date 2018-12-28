@@ -10,10 +10,10 @@ export class Playlist extends Component {
 
     return (
       <div>
-        <h1>Playlist</h1>
-        <div>
+        <h1 className='text-center'>Playlist</h1>
+        <div className='pre-scrollable'>
           {playlist.length == 0 ? (
-            <h2>No songs in playlist</h2>
+            <h2 className='text-center'>No songs in playlist</h2>
           ) : (
             playlist.map(song => <PlaylistItem key={uuid()} song={song} />)
           )}

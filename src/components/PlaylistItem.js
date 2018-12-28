@@ -13,11 +13,21 @@ class PlaylistItem extends Component {
 
     return (
       <div>
-        <div>Artist: {artist}</div>
-        <div>Title: {title}</div>
-        <div>Album: {album}</div>
-        <button onClick={() => currentPlayingSong(song)}>Play</button>
-        <button onClick={() => removeSongFromPlaylist(song)}>
+        <ul className='list-group'>
+          <li className='list-group-item'>Artist: {artist}</li>
+          <li className='list-group-item'>Title: {title}</li>
+          <li className='list-group-item'>Album: {album}</li>
+        </ul>
+        <button
+          className='btn btn-outline-primary'
+          onClick={() => currentPlayingSong(song)}
+        >
+          Play
+        </button>
+        <button
+          className='btn btn-outline-primary'
+          onClick={() => removeSongFromPlaylist(song)}
+        >
           Remove song from playlist
         </button>
       </div>
