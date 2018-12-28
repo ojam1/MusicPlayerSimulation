@@ -14,8 +14,6 @@ const jsx = (
     <div className='container-fluid'>
       <div className='row justify-content-around'>
         <SongPlaying className='col d-flex justify-content-center' />
-      </div>
-      <div className='row justify-content-around'>
         <Playlist className='col' />
       </div>
       <p className='center'>
