@@ -1,29 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import { changePlayingState, currentPlayingSong } from '../actions/playlist';
-
-const Button = styled.button`
-  background: purple;
-  border: none;
-  color: white;
-  font-weight: 100;
-  padding: 1rem;
-`;
-
-const SongText = styled.div`
-  text-align: left;
-`;
-
-const Header = styled.h1`
-  font-weight: bold;
-`;
-const Divider = styled.div`
-  width: 5px;
-  height: auto;
-  display: inline-block;
-`;
+import ProgressBar from './ProgressBar';
 
 class Playing extends Component {
   handlePrevious() {
@@ -44,31 +23,54 @@ class Playing extends Component {
     }
   }
 
-  renderPlayPauseButton() {
-    const { changePlayingState } = this.props;
+  renderPlayPause() {
     const { isPlaying } = this.props.playingSong;
 
-    if (isPlaying) {
-      return (
-        <Button onClick={() => changePlayingState(!isPlaying)}>Pause</Button>
-      );
-    }
-    return <Button onClick={() => changePlayingState(!isPlaying)}>Play</Button>;
+    return isPlaying ? <h1>Playing</h1> : <h1>Paused</h1>;
+  }
+
+  renderPlayPauseButton() {
+    const { isPlaying } = this.props.playingSong;
+
+    return isPlaying ? (
+      <span className='fas fa-pause-circle' />
+    ) : (
+      <span className='fas fa-play-circle' />
+    );
   }
 
   render() {
+    const { changePlayingState } = this.props;
+    const { isPlaying } = this.props.playingSong;
     const { artist, album, title } = this.props.playingSong.playingSong;
+
     return (
-      <div>
-        <Header>Now Playing</Header>
-        <SongText>Artist: {artist}</SongText>
-        <SongText>Title: {title}</SongText>
-        <SongText>Album: {album}</SongText>
-        <Button onClick={() => this.handlePrevious()}>Previous</Button>
-        <Divider />
-        {this.renderPlayPauseButton()}
-        <Divider />
-        <Button onClick={() => this.handleNext()}>Next</Button>
+      <div className='d-flex flex-column justify-content-center'>
+        {this.renderPlayPause()}
+        <div>Artist: {artist}</div>
+        <div>Title: {title}</div>
+        <div>Album: {album}</div>
+        <div className='btn-group'>
+          <button
+            className='btn btn-outline-primary'
+            onClick={() => this.handlePrevious()}
+          >
+            <span className='fas fa-arrow-alt-circle-left' />
+          </button>
+          <button
+            className='btn btn-outline-primary'
+            onClick={() => changePlayingState(!isPlaying)}
+          >
+            {this.renderPlayPauseButton()}
+          </button>
+          <button
+            className='btn btn-outline-primary'
+            onClick={() => this.handleNext()}
+          >
+            <span className='fas fa-arrow-alt-circle-right' />
+          </button>
+        </div>
+        <ProgressBar />
       </div>
     );
   }

@@ -7,7 +7,7 @@ import {
 describe('current song reducer', () => {
     it('should return initial state', () => {
         expect(reducer(undefined, {})).toEqual({
-            playingSong: [],
+            playingSong: {},
             isPlaying: false
         });
     });

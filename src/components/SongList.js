@@ -12,8 +12,8 @@ export class SongList extends Component {
   render() {
     return (
       <div>
-        <h1>Available Songs</h1>
-        <div>
+        <h1 className='text-center'>Available Songs</h1>
+        <div className='pre-scrollable'>
           {this.props.songs.map(song => (
             <SongListItem key={song.id} song={song} />
           ))}
