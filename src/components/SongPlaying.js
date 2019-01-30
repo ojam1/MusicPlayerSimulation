@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { changePlayingState, currentPlayingSong } from '../actions/playlist';
-import ProgressBar from './ProgressBar';
 
 class Playing extends Component {
   handlePrevious() {
@@ -70,7 +69,6 @@ class Playing extends Component {
             <span className='fas fa-arrow-alt-circle-right' />
           </button>
         </div>
-        <ProgressBar />
       </div>
     );
   }
